@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Restaurant</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Edit Restaurant</h1>
+    <form th:action="@{/edit/{id}(id=${restaurant.restaurantId})}" th:object="${restaurant}" method="post">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" th:field="*{name}" required class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="meal_alcohol">Meal or Alcohol:</label>
+            <select id="meal_alcohol" name="meal_alcohol" th:field="*{meal_alcohol}" required class="form-control">
+                <option th:value="Meal" th:text="#{mealoralcohol.Meal}"></option>
+                <option th:value="Alcohol" th:text="#{mealoralcohol.Alcohol}"></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="url">URL:</label>
+            <input type="text" id="url" name="url" th:field="*{url}" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="saturdayopentime">Saturday Open Time:</label>
+            <input type="number" id="saturdayopentime" name="saturdayopentime" th:field="*{saturdayopentime}" min="0" max="24" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="sundayopentime">Sunday Open Time:</label>
+            <input type="number" id="sundayopentime" name="sundayopentime" th:field="*{sundayopentime}" min="0" max="24" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="maxNumOfPeople">Max Number of People:</label>
+            <input type="number" id="maxNumOfPeople" name="maxNumOfPeople" th:field="*{maxNumOfPeople}" required class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="averagePrice">Average Price:</label>
+            <input type="number" id="averagePrice" name="averagePrice" th:field="*{averagePrice}" required class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label>Meal Types:</label><br>
+            <input type="checkbox" id="korean" name="mealtypes" value="Korean" th:checked="${restaurant.menuRestaurants.?[mealtype == 'Korean'] != null}">
+            <label for="korean">Korean</label><br>
+            <input type="checkbox" id="japanese" name="mealtypes" value="Japanese" th:checked="${restaurant.menuRestaurants.?[mealtype == 'Japanese'] != null}">
+            <label for="japanese">Japanese</label><br>
+            <input type="checkbox" id="chinese" name="mealtypes" value="Chinese" th:checked="${restaurant.menuRestaurants.?[mealtype == 'Chinese'] != null}">
+            <label for="chinese">Chinese</label><br>
+            <input type="checkbox" id="meat" name="mealtypes" value="meat" th:checked="${restaurant.menuRestaurants.?[mealtype == 'meat'] != null}">
+            <label for="meat">Meat</label><br>
+            <input type="checkbox" id="soop" name="mealtypes" value="soop" th:checked="${restaurant.menuRestaurants.?[mealtype == 'soop'] != null}">
+            <label for="soop">Soup</label><br>
+            <input type="checkbox" id="ramen" name="mealtypes" value="ramen" th:checked="${restaurant.menuRestaurants.?[mealtype == 'ramen'] != null}">
+            <label for="ramen">Ramen</label><br>
+            <input type="checkbox" id="heavy" name="mealtypes" value="heavy" th:checked="${restaurant.menuRestaurants.?[mealtype == 'heavy'] != null}">
+            <label for="heavy">Heavy</label><br>
+            <input type="checkbox" id="light" name="mealtypes" value="light" th:checked="${restaurant.menuRestaurants.?[mealtype == 'light'] != null}">
+            <label for="light">Light</label><br>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>
+</body>
+</html>

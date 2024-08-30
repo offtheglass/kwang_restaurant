@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+    <title>Hello</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+
+<div class="container">
+
+    <div th:replace="fragments/bodyHeader :: bodyHeader" />
+
+    <div class="jumbotron">
+        <h1>크왕 뒷풀이 고르기</h1>
+        <p>
+            <a class="btn btn-lg btn-secondary" href="/random">랜덤으로 고르기</a>
+            <a class="btn btn-lg btn-secondary" href="/condition">조건에 맞춰 고르기</a>
+            <a class="btn btn-lg btn-secondary" href="/addRestaurant">레스토랑추가</a>
+            <a class="btn btn-lg btn-secondary" href="/listRestaurants">레스토랑보기/편집</a>
+        </p>
+    </div>
+
+    <div th:replace="fragments/footer :: footer" />
+
+</div> <!-- /container -->
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+    <title>Search Results</title>
+</head>
+
+<body>
+<div class="container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader"></div>
+
+    <div class="jumbotron">
+        <h1>검색 결과</h1>
+        <ul>
+            <li th:each="restaurant : ${restaurants}">
+                <span th:text="${restaurant.name}">Restaurant Name</span>
+            </li>
+        </ul>
+        <p>
+            <a class="btn btn-lg btn-secondary" href="/">홈으로</a>
+            <a class="btn btn-lg btn-secondary" href="/condition">다시 조건 선택하기</a>
+        </p>
+    </div>
+
+    <div th:replace="fragments/footer :: footer"></div>
+</div>
+</body>
+</html>

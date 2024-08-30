@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurant List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Restaurant List</h1>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Meal/Alcohol</th>
+            <th>URL</th>
+            <th>Saturday Open Time</th>
+            <th>Sunday Open Time</th>
+            <th>Max Number of People</th>
+            <th>Average Price</th>
+            <th>Meal Types</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="restaurant : ${restaurants}">
+            <td th:text="${restaurant.restaurantId}"></td>
+            <td th:text="${restaurant.name}"></td>
+            <td th:text="${restaurant.meal_alcohol}"></td>
+            <td><a th:href="${restaurant.url}" th:text="${restaurant.url}"></a></td>
+            <td th:text="${restaurant.saturdayopentime}"></td>
+            <td th:text="${restaurant.sundayopentime}"></td>
+            <td th:text="${restaurant.maxNumOfPeople}"></td>
+            <td th:text="${restaurant.averagePrice}"></td>
+            <td>
+                <ul>
+                    <li th:each="menuRestaurant : ${restaurant.menuRestaurants}" th:text="${menuRestaurant.mealtype}"></li>
+                </ul>
+            </td>
+            <td>
+                <a class="btn btn-primary" th:href="@{/edit/{id}(id=${restaurant.restaurantId})}">Edit</a>
+                <a class="btn btn-danger" th:href="@{/delete/{id}(id=${restaurant.restaurantId})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+    <title>Search Conditions</title>
+</head>
+
+<body>
+<div class="container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader"></div>
+
+    <div class="jumbotron">
+        <h1>조건에 맞춰 고르기</h1>
+        <form action="/search" method="post">
+            <label for="day">Day:</label>
+            <select name="day" id="day">
+                <option value="1">Saturday</option>
+                <option value="2">Sunday</option>
+            </select><br/>
+
+            <label for="opentime">도착시간 :</label>
+            <input type="number" id="opentime" name="opentime"><br/>
+
+            <label for="numofpeople">Number of People:</label>
+            <input type="number" id="numofpeople" name="numofpeople"><br/>
+
+            <label for="avgprice">Average Price:</label>
+            <input type="number" id="avgprice" name="avgprice"><br/>
+
+            <label for="mealoralcohol">Meal or Alcohol:</label>
+            <select name="mealoralcohol" id="mealoralcohol">
+                <option value="MEAL">Meal</option>
+                <option value="ALCOHOL">Alcohol</option>
+            </select><br/>
+
+            <label for="mealtypes">Meal Types:</label>
+            <select name="mealtypes" id="mealtypes" multiple>
+                <option value="Korean">Korean</option>
+                <option value="Japanese">Japanese</option>
+                <option value="Chinese">Chinese</option>
+                <option value="meat">Meat</option>
+                <option value="soop">soop</option>
+                <option value="ramen">ramen</option>
+                <option value="heavy">heavy</option>
+                <option value="light">light</option>
+                <!-- Add other meal types as needed -->
+            </select><br/>
+
+            <input type="submit" value="Search">
+        </form>
+    </div>
+
+    <div th:replace="fragments/footer :: footer"></div>
+</div>
+</body>
+</html>

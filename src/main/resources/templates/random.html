@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+    <title>Random Restaurant</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<div class="container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader" />
+
+    <div class="jumbotron">
+        <h1>Random Restaurant</h1>
+        <p th:if="${restaurant != null}">
+            Selected Restaurant: <strong th:text="${restaurant.name}">Restaurant Name</strong>
+        </p>
+        <p th:if="${restaurant == null}">
+            No restaurants available.
+        </p>
+        <p>
+            <a class="btn btn-lg btn-secondary" href="/">Back to Home</a>
+            <a class="btn btn-lg btn-secondary" href="/random">Select Again</a>
+        </p>
+    </div>
+
+    <div th:replace="fragments/footer :: footer" />
+</div> <!-- /container -->
+</body>
+</html>
