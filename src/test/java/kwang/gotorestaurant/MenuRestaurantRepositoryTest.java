@@ -28,7 +28,7 @@ public class MenuRestaurantRepositoryTest {
     }
 
     @Test
-    @Rollback(false)
+//    @Rollback(false)
     public void saveTest() throws Exception{
         // given
         Restaurant res = new Restaurant();
@@ -44,7 +44,7 @@ public class MenuRestaurantRepositoryTest {
     }
 
     @Test
-    @Rollback(false)
+//    @Rollback(false)
     public void deleteTest() throws Exception{
         // given
         Restaurant res = new Restaurant();

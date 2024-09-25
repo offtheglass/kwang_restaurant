@@ -27,7 +27,7 @@ class MenuRestaurantServiceTest {
     @Autowired
     MenuRestaurantRepository mr;
     @Test
-    @Rollback(false)
+//    @Rollback(false)
     public void testJPQL() throws Exception{
         Restaurant res1 = new Restaurant();
         res1.setName("res1");
